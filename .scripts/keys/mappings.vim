@@ -1,7 +1,3 @@
-" Set leader and local leader keys
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
@@ -20,6 +16,13 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+if exists('g:common')
+    " Show NERDTree
+    nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+    " Open NERD tree find
+    nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+endif
+
 if exists('g:typescript')
     " Jump to definition of current symbol
     nmap <silent> gd <Plug>(coc-definition)
@@ -32,9 +35,9 @@ if exists('g:typescript')
     " Jump to next error / warning in file
     nmap <leader>ne <Plug>(coc-diagnostic-next)
     " Display a list of all errors / warnings in workspace
-    nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
     " Search worksapce for input symbol
-    nnoremap <silent> <space>s :<C-u>CocList --interactive symbols<cr>
+    nnoremap <silent> <leader>s :<C-u>CocList --interactive symbols<cr>
     " Get and run fixes for current file
     nmap <leader>do <Plug>(coc-codeaction)
     " Rename symbol under cursor
