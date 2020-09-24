@@ -1,0 +1,1 @@
+so $VIM_CONFIGS_ROOT/main.vim
